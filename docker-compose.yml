@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+    mongo:
+        image: mongo
+        container_name: mongo
+        restart: always
+        volumes:
+            - /etc/localtime:/etc/localtime
+            # - /opt/chart_backend_mongo/mongo:/var/lib/mysql
+            # - /opt/chart_backend_mongo/my.cnf:/etc/mysql/my.cnf:ro
+        ports:
+            - 27017:27017/tcp
+
+        environment:
+            - MONGO_INITDB_DATABASE=test
+            - MONGO_INITDB_ROOT_USERNAME=root
+            - MONGO_INITDB_ROOT_PASSWORD=root123
+        #command:
+        #    - /sbin/init
